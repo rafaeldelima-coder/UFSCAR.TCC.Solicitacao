@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Solicitacao.Manutencao.Dominio.Subisidiarias
 {
-    public class Subsidiaria
+    public class Subsidiaria:Entidade
     {
         public string Nome { get; private set; }
         public Subsidiaria(string nome) 

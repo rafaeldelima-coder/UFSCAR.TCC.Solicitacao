@@ -16,4 +16,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Solicitacao.Manutencao.Dominio\Solicitacao.Manutencao.Dominio.csproj" />
+  </ItemGroup>
+
 </Project>
