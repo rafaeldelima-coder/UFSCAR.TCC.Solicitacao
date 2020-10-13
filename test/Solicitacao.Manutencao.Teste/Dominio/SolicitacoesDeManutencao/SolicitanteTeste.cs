@@ -8,8 +8,8 @@ namespace Solicitacao.Manutencao.Teste.Dominio.SolcitacoesDeManutencao
 
     public class SolicitanteTeste
     {
-        private const int Identificador = 128;
-        private const string Nome = "Delano Medeiros";
+        private const int Identificador = 371130;
+        private const string Nome = "Rafael Perez";
 
         [Fact]
         public void Deve_criar_solicitante() 
