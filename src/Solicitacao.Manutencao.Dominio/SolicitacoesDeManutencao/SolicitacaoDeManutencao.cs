@@ -6,8 +6,8 @@ namespace Solicitacao.Manutencao.Dominio.SolicitacoesDeManutencao
 {
     public class SolicitacaoDeManutencao:Entidade
     {
-        public  Solicitante Solicitante { get; private set; }
-        public Aprovador Aprovador { get; private set; }
+        public  Autor Solicitante { get; private set; }
+        public Autor Aprovador { get; private set; }
         public string IdentificadorDaSubsidiaria { get; private set; }
         public TipoDeSolicitacaoDeManutencao TipoDeSolicitacaoDeManutencao { get; private set; }
         public string Justificativa { get; private set; }
@@ -27,7 +27,7 @@ namespace Solicitacao.Manutencao.Dominio.SolicitacoesDeManutencao
             ExcecaoDeDominio.LancarQuando(string.IsNullOrEmpty(identificadorDaSubsidiaria), "Subsidiária é inválida");
             ExcecaoDeDominio.LancarQuando(string.IsNullOrEmpty(justificativa), "Justificativa inválida");
             ExcecaoDeDominio.LancarQuando(inicioDesejadoParaManutencao.Date < DateTime.Now.Date, "Data do inicio desejado não pode ser inferior a data de hoje");
-            Solicitante = new Solicitante(identificadorDoSolicitante, nomeDoSolicitante);
+            Solicitante = new Autor(identificadorDoSolicitante, nomeDoSolicitante);
             IdentificadorDaSubsidiaria = identificadorDaSubsidiaria;
             TipoDeSolicitacaoDeManutencao = tipoDeSolicitacaoDeManutencao;
             Justificativa = justificativa;
@@ -35,7 +35,7 @@ namespace Solicitacao.Manutencao.Dominio.SolicitacoesDeManutencao
             InicioDesejadoParaManutencao = inicioDesejadoParaManutencao;
             DataDaSolicitacao = DateTime.Now;
             StatusDaSolicitacao = StatusDaSolicitacao.Pendente;           
-            Aprovador = new Aprovador("Sem aprovador",0);
+            Aprovador = new Autor(0,"Sem aprovador");
         }
 
         public void Cancelar()
@@ -43,13 +43,13 @@ namespace Solicitacao.Manutencao.Dominio.SolicitacoesDeManutencao
             StatusDaSolicitacao = StatusDaSolicitacao.Cancelada;
         }
 
-        public void Reprovar(Aprovador aprovador)
+        public void Reprovar(Autor aprovador)
         {
             StatusDaSolicitacao = StatusDaSolicitacao.Reprovada;
             Aprovador = aprovador;
         }
 
-        public void Aprovar(Aprovador aprovador)
+        public void Aprovar(Autor aprovador)
         {
             StatusDaSolicitacao = StatusDaSolicitacao.Aprovada;
             Aprovador = aprovador;

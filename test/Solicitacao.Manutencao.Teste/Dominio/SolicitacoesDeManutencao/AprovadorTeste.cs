@@ -22,7 +22,7 @@ namespace Solicitacao.Manutencao.Teste.Dominio.SolicitacoesDeManutencao
                 Nome
             };
 
-            var aprovador = new Aprovador(aprovadorTeste.Nome, aprovadorTeste.Identificador);
+            var aprovador = new Aprovador(aprovadorTeste.Identificador, aprovadorTeste.Nome);
             aprovadorTeste.ToExpectedObject().ShouldMatch(aprovador);
         }
 
@@ -32,7 +32,7 @@ namespace Solicitacao.Manutencao.Teste.Dominio.SolicitacoesDeManutencao
         public void Deve_validar_nome_do_aprovador(string nomeInvalido)
         {
             const string mensagemTeste = "Nome do aprovador é inválido";
-            AfirmaExtensao.VerificarMensagem(() => new Aprovador( nomeInvalido, Identificador), mensagemTeste);
+            AfirmaExtensao.VerificarMensagem(() => new Aprovador( Identificador,nomeInvalido), mensagemTeste);
         }
     }
 }

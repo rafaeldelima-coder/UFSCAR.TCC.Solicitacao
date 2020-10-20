@@ -29,7 +29,7 @@ namespace Solicitacao.Manutencao.Teste.Dominio.SolicitacoesDeManutencao
         public void Deve_validar_nome_do_autor(string nomeInvalido)
         {
             const string mensagemTeste = "Nome do autor é inválido";
-            AfirmaExtensao.VerificarMensagem(() => new Aprovador(nomeInvalido, Identificador), mensagemTeste);
+            AfirmaExtensao.VerificarMensagem(() => new Aprovador(Identificador,nomeInvalido ), mensagemTeste);
         }
     }
 }
