@@ -16,11 +16,17 @@ namespace Solicitacao.Manutencao.Dominio.SolicitacoesDeManutencao
         public DateTime DataDaSolicitacao { get; private set; }
         public StatusDaSolicitacao StatusDaSolicitacao { get; private set; }
         private SolicitacaoDeManutencao() { }
-        public SolicitacaoDeManutencao(string identificadorDaSubsidiaria,
-           int identificadorDoSolicitante, string nomeDoSolicitante,
+        public SolicitacaoDeManutencao(
+            string identificadorDaSubsidiaria,
+           int identificadorDoSolicitante, 
+           string nomeDoSolicitante,
            TipoDeSolicitacaoDeManutencao tipoDeSolicitacaoDeManutencao,
-           string justificativa, string numeroDoContrato, string nomeDaTerceirizada, string cnpjDaTerceirizada,
-           string gestorDoContrato, DateTime dataFinalDaVigência,
+           string justificativa, 
+           string numeroDoContrato, 
+           string nomeDaTerceirizada, 
+           string cnpjDaTerceirizada,
+           string gestorDoContrato, 
+           DateTime dataFinalDaVigência,
            DateTime inicioDesejadoParaManutencao)
         {
 

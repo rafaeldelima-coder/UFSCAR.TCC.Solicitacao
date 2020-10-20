@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Solicitacao.Manutencao.Dominio.SolicitacoesDeManutencao;
 
 namespace Solicitacao.Manutencao.Aplicacao.SolicitacaoDeManutencaoRepositorio
 {
-    interface ISolicitacaoDeManutencaoRepositorio
+    public interface ISolicitacaoDeManutencaoRepositorio:IRepositorio<SolicitacaoDeManutencao>
     {
+
     }
 }
