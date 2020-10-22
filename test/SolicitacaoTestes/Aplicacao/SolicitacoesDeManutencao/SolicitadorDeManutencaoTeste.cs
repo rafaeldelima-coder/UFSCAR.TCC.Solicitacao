@@ -1,11 +1,11 @@
-﻿using Nosbor.FluentBuilder.Lib;
+﻿using System;
+using Solicitacao.Aplicacao.SolicitacoesDeManutencao;
+using Solicitacao.Dominio.SolicitacoesDeManutencao;
+using Nosbor.FluentBuilder.Lib;
 using NSubstitute;
-using Solicitacao.Manutencao.Aplicacao.SolicitacoesDeManutencao;
-using Solicitacao.Manutencao.Dominio.SolicitacoesDeManutencao;
-using System;
 using Xunit;
 
-namespace Solicitacao.Manutencao.Teste.Aplicacao
+namespace SolicitacaoTestes.Aplicacao.SolicitacoesDeManutencao
 {
     public class SolicitadorDeManutencaoTeste
     {
@@ -15,18 +15,19 @@ namespace Solicitacao.Manutencao.Teste.Aplicacao
         private readonly ISolicitacaoDeManutencaoRepositorio _solicitacaoDeManutencaoRepositorio;
         private readonly ICanceladorDeSolicitacoesDeManutencaoPendentes _canceladorDeSolicitacoesDeManutencaoPendentes;
 
-        public SolicitadorDeManutencaoTeste() 
+        public SolicitadorDeManutencaoTeste()
         {
             _dto = new SolicitacaoDeManutencaoDto
             {
-                SubsidiariaId = "Teste",
+                SubsidiariaId = "XPTO-ABC",
                 SolicitanteId = 1,
-                NomeDoSolicitante = "Rafael Lima",
+                NomeDoSolicitante = "Ricardo José",
                 TipoDeSolicitacaoDeManutencao = TipoDeSolicitacaoDeManutencao.Jardinagem.GetHashCode(),
                 Justificativa = "Grama Alta",
-                NumeroDoContrato = "142",
-                InicioDesejadoParaManutencao = DateTime.Now.AddDays(15)
+                NumeroDoContrato = "2135",
+                InicioDesejadoParaManutencao = DateTime.Now.AddMonths(2)
             };
+
             _solicitacaoDeManutencaoRepositorio = Substitute.For<ISolicitacaoDeManutencaoRepositorio>();
             _canceladorDeSolicitacoesDeManutencaoPendentes = Substitute.For<ICanceladorDeSolicitacoesDeManutencaoPendentes>();
             _solicitacaoDeManutencao = FluentBuilder<SolicitacaoDeManutencao>.New().With(s => s.IdentificadorDaSubsidiaria, _dto.SubsidiariaId).Build();
@@ -35,15 +36,7 @@ namespace Solicitacao.Manutencao.Teste.Aplicacao
             _solicitador = new SolicitadorDeManutencao(
                 _solicitacaoDeManutencaoRepositorio, fabricaDeSolicitacaoDeManutencao, _canceladorDeSolicitacoesDeManutencaoPendentes);
         }
-        [Fact]
-        public void Deve_salvar_solcitacao_de_manutencao()
-        {
-            _solicitador.Solicitar(_dto);
 
-            _solicitacaoDeManutencaoRepositorio.Received(1)
-                .Adicionar(Arg.Is<SolicitacaoDeManutencao>(solicitacao =>
-                solicitacao.Solicitante.Identificador == _dto.SolicitanteId));
-        }
         [Fact]
         public void Deve_salvar_solicitacao_de_manutencao()
         {
@@ -53,7 +46,7 @@ namespace Solicitacao.Manutencao.Teste.Aplicacao
                 .Adicionar(Arg.Is<SolicitacaoDeManutencao>(solicitacao =>
                     solicitacao == _solicitacaoDeManutencao));
         }
-
+        
         [Fact]
         public void Deve_cancelar_solicitacoes_de_manutencao_pendentes_para_o_tipo_solicitado()
         {

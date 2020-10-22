@@ -1,0 +1,18 @@
+﻿using System.Runtime.Serialization;
+
+namespace Solicitacao.Infra.ErpContracts
+{
+    public class ContratoDoErp
+    {
+        [DataMember(Name = "id")]
+        public string Id { get; set; }
+        [DataMember(Name = "company")]
+        public string Company { get; set; }
+        [DataMember(Name = "companyid")]
+        public string CompanyId { get; set; }
+        [DataMember(Name = "finaldate")]
+        public string FinalDate { get; set; }
+        [DataMember(Name = "manager")]
+        public string Manager { get; set; }
+    }
+}

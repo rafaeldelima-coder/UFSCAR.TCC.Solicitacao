@@ -1,5 +1,6 @@
 ﻿using Solicitacao.Manutencao.Dominio;
 using System;
+using System.Threading.Tasks;
 using Xunit;
 
 namespace Solicitacao.Manutencao.Teste.Util
@@ -12,6 +13,12 @@ namespace Solicitacao.Manutencao.Teste.Util
 
             Assert.Equal(mensagemEsperada, mensagem);
 
+        }
+
+        public static void VerificarMensagem(Func<Task> testeNoCodigo, string mensagemEsperada)
+        {
+            var result = Assert.ThrowsAsync<ExcecaoDeDominio>(testeNoCodigo).Result;
+            Assert.Equal(mensagemEsperada, result.Message);
         }
     }
 }
