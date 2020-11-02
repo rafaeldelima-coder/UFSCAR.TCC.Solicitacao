@@ -19,12 +19,12 @@ namespace SolicitacaoTestes.Aplicacao.SolicitacoesDeManutencao
         {
             _dto = new SolicitacaoDeManutencaoDto
             {
-                SubsidiariaId = "XPTO-ABC",
+                SubsidiariaId = "Teste",
                 SolicitanteId = 1,
-                NomeDoSolicitante = "Ricardo José",
+                NomeDoSolicitante = "Rafael Lima",
                 TipoDeSolicitacaoDeManutencao = TipoDeSolicitacaoDeManutencao.Jardinagem.GetHashCode(),
                 Justificativa = "Grama Alta",
-                NumeroDoContrato = "2135",
+                NumeroDoContrato = "142",
                 InicioDesejadoParaManutencao = DateTime.Now.AddMonths(2)
             };
 

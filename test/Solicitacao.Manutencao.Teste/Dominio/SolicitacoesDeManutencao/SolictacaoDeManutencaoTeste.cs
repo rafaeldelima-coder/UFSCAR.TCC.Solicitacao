@@ -12,7 +12,7 @@ namespace Solicitacao.Manutencao.Teste.Dominio.SolicitacoesDeManutencao
     public class SolictacaoDeManutencaoTeste
     {
         private const int IdentificadorDoSolicitante = 5;
-        private const string NomeDoSolicitante = "Marilde Santos";
+        private const string NomeDoSolicitante = "Deleno Medeiros";
         private const string NumeroDoContrato = "9826026025118073";
         private const string NomeDaTerceirizadaDoContrato = "NUJ";
         private const string CnpjDaTerceirizadaDoContrato = "45358058000140";

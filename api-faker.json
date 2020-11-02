@@ -1,0 +1,24 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "contracts":[
+  {"id":"12345","company":"KADIMUS","companyid":"000000001","finaldate":"01/01/2023"},
+  {"id":"54321","company":"FILIPINAS","companyid":"000000002","finaldate":"01/03/2023"},
+  {"id":"12346","company":"LARANJAIS","companyid":"000000003","finaldate":"01/01/2023"}
+  ]
+}

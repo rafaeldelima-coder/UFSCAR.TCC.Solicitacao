@@ -1,24 +1,23 @@
-﻿using System;
-using ExpectedObjects;
-using Solicitacao.Dominio.SolicitacoesDeManutencao;
-using Solicitacao.Dominio.Subsidiarias;
-using SolicitacaoTestes._Util;
+﻿using ExpectedObjects;
 using Nosbor.FluentBuilder.Lib;
+using Solicitacao.Dominio.SolicitacoesDeManutencao;
+using SolicitacaoTestes._Util;
+using System;
 using Xunit;
 
 namespace SolicitacaoTestes.Dominio.SolicitacoesDeManutencao
 {
     public class SolicitacaoDeManutencaoTeste
     {
-        private const int IdentificadorDoSolicitante = 5;
-        private const string NomeDoSoliciante = "Ricardo Almeida";
-        private const string NumeroDoContrato = "234617";
-        private const string NomeDaTerceirizadaDoContrato = "Grama SA";
-        private const string CnpjDaTerceirizadaDoContrato = "59773744000191";
-        private const string GestorDoContrato = "Hugo Alvez";
+        private const int IdentificadorDoSolicitante = 5;    
+        private const string NomeDoSoliciante = "Deleno Medeiros";
+        private const string NumeroDoContrato = "9826026025118073";
+        private const string NomeDaTerceirizadaDoContrato = "NUJ";
+        private const string CnpjDaTerceirizadaDoContrato = "45358058000140";
+        private const string GestorDoContrato = "WANDA HOFFMANN";
         private readonly DateTime _dataFinalDaVigenciaDoContrato = DateTime.Now.AddMonths(2);
         private readonly TipoDeSolicitacaoDeManutencao _tipoDeSolicitacaoDeManutencao = TipoDeSolicitacaoDeManutencao.Jardinagem;
-        private string _identificadorDaSubsidiaria = "XPTO=33";
+        private string _identificadorDaSubsidiaria = "Polo Itapevi";
         private string _justificativa = "Grama muito alta";
         private DateTime _inicioDesejadoParaManutencao = DateTime.Now.AddDays(20);
 
